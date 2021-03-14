@@ -17,7 +17,7 @@ class TesteTroco(unittest.TestCase):
         for i,valor in enumerate(self.var_tests):
             memoria_contagem = [0]*(valor+1)
             memoria_moedas= [0]*(valor+1)
-            self.assertEqual(valor_esperado[i],calculaTroco(self.arr_tests[0],self.var_tests[i],memoria_contagem,memoria_moedas),msg=f"A quantidade de moedas para um troco de {self.var_tests[i]} está incorreto!")
+            self.assertEqual(valor_esperado[i],calculaTroco(self.arr_tests[0],self.var_tests[i],memoria_contagem,memoria_moedas),msg=f"A quantidade de moedas para um troco de {self.var_tests[i]} está incorreta!")
     
     def teste_moedas_resultantes(self):
         memoria_contagem = []
@@ -33,8 +33,9 @@ class TesteTroco(unittest.TestCase):
     def teste_aplicacao_salario_minimo_2020(self):
         memoria_contagem = [0]*1040
         memoria_moedas= [0]*1040
-        self.assertEqual(10,calculaTroco(self.arr_tests[1],1039,memoria_contagem,memoria_moedas),msg=f"A quantidade de notas para um troco de R$1039 está incorreto!")
-
+        troco_esperado = [2, 2, 5, 10, 20, 200, 200, 200, 200, 200]
+        self.assertEqual(10,calculaTroco(self.arr_tests[1],1039,memoria_contagem,memoria_moedas),msg=f"A quantidade de notas para um troco de R$1039 está incorreta!")
+        self.assertEqual(troco_esperado,moedasResultantes(memoria_moedas,1039),msg=f"A distribuição de notas para R$1039 está incorreta!")
 
             
 if __name__ == "__main__":
