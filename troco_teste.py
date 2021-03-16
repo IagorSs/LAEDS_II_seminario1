@@ -1,6 +1,6 @@
 import unittest
 
-from troco import *
+from troco import calculaTroco, moedasResultantes
 
 class TesteTroco(unittest.TestCase):
     def setUp(self):
