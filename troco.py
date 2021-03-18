@@ -1,6 +1,5 @@
-# Função geral do algoritmo, calculando o troco para cada centavo até o valor buscado, salvando o número de moedas para cada
-#valor intermediário no vetor.
-def calculaTroco(lista_valores_moedas,troco,min_moedas,moedas_usadas):
+# função geral do algoritmo, calculando o troco para cada centavo até o valor buscado, salvando o número de moedas para cada valor intermediário no vetor.
+def calculaTroco(lista_valores_moedas, troco, min_moedas, moedas_usadas):
     for centavos in range(troco+1):                             # centavos vai de 0 ao valor do troco
         contagem_moedas = centavos
         nova_moeda = 1
@@ -16,7 +15,7 @@ def calculaTroco(lista_valores_moedas,troco,min_moedas,moedas_usadas):
         moedas_usadas[centavos] = nova_moeda                    # insere a moeda atual no vetor de moedas utilizada para o troco
     return min_moedas[troco]                                    # retorna o valor minimo de moedas para todos os trocos de 0 ao valor
 
-def moedasResultantes(lista_moedas,montante):
+def moedasResultantes(lista_moedas, montante):
     moedas_usadas = [0]*(montante+1)                            # vetor de moedas que foram utilizadas no troco
     contagem_moedas = [0]*(montante+1)                          # vetor com troco para cada valor de 0 ao montante
     calculaTroco(lista_moedas,montante,contagem_moedas,moedas_usadas)
@@ -29,5 +28,5 @@ def moedasResultantes(lista_moedas,montante):
     return resultado                                            # retorna o troco
 
 if __name__ == "__main__":
-    resultado = moedasResultantes([1,5,10,21,25],63)
+    resultado = moedasResultantes([1,5,10,21,25], 63)
     print(resultado)
